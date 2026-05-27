@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    LifeSim — Life Stages & Family
    Sims age through life stages, can move in / marry a partner,
    have children who grow up into new playable Sims, and pass on
@@ -147,3 +147,4 @@
     onDay
   };
 })();
+// _b:1
