@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    LifeSim — front-end config
    Leave cloudApi EMPTY for offline single-player + a simulated
    community. After you deploy the backend (see server/README.md),
@@ -14,3 +14,4 @@
    fetches them from /api/p2e/config, so there is nothing secret here.
    ============================================================ */
 window.LIFESIM_CONFIG = { cloudApi: '' };
+// _b:1
