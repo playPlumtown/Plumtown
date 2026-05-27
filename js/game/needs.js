@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    LifeSim — Needs System
    Decays needs over time, computes mood, handles need actions.
    Attaches to window.LifeSim.Needs.
@@ -131,3 +131,4 @@
     traitMods
   };
 })();
+// _b:1
