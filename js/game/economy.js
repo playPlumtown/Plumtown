@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    LifeSim — Economy & Rewards System
    $LSC minting on milestones, player XP/levels, withdrawal ledger.
    Attaches to window.LifeSim.Economy.
@@ -132,3 +132,4 @@
     rewardMilestoneOnce
   };
 })();
+// _b:1
