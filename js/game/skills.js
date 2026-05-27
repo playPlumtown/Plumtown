@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    LifeSim — Skills System
    XP gain, leveling, trait bonuses, skill-based gating.
    Attaches to window.LifeSim.Skills.
@@ -146,3 +146,4 @@
     learnMod
   };
 })();
+// _b:1
