@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    LifeSim — Careers System
    Hiring, daily work, performance, promotions, pay.
    Attaches to window.LifeSim.Careers.
@@ -147,3 +147,4 @@
 
   LS.Careers = { join, quit, work, promote, info, list };
 })();
+// _b:1
