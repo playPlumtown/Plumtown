@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    LifeSim — Time, Clock & Game Loop
    Advances time, decays needs, ages moodlets, and drives the Sim:
    every targeted action walks the Sim tile-by-tile (pathfinding)
@@ -659,3 +659,4 @@
     setPresentNpcs
   };
 })();
+// _b:1
