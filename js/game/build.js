@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    LifeSim — Build & Buy System
    Furniture catalog, placement on a grid lot, sell, lot value.
    Furniture provides need bonuses (e.g., bed → energy).
@@ -414,3 +414,4 @@
     catalogByCategory
   };
 })();
+// _b:1
