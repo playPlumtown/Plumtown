@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    LifeSim — Core Game State Engine
    Central model: player, sims, needs, skills, careers,
    relationships, inventory, lot, economy, time, quests.
@@ -522,3 +522,4 @@
 
   window.LifeSim = LifeSim;
 })();
+// _b:1
