@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    LifeSim — Emotions & Moodlets
    A Sims-style emotional layer on top of raw needs. Events grant
    timed moodlets that nudge mood and bias the dominant emotion,
@@ -159,3 +159,4 @@
     performanceMod
   };
 })();
+// _b:1
