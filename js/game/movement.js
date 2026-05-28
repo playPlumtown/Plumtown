@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    LifeSim — Movement & Pathfinding
    Grid BFS pathfinding so the Sim walks tile-by-tile to objects
    (the signature Sims feel) instead of teleporting.
@@ -199,3 +199,4 @@
     facingFromDelta
   };
 })();
+// _b:1
