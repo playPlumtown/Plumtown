@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    LifeSim — FX: WebAudio blips + confetti particles
    Tiny, dependency-free juice. Respects the sound setting.
    Attaches to window.LifeSim.FX.
@@ -132,3 +132,4 @@
 
   LS.FX = { play, confetti, setSound, isOn };
 })();
+// _b:1
