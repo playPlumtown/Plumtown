@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    LifeSim — Locations / Sim Town
    The Sim can travel from home to community venues (gym, park,
    cafe, library, mall, club). Each venue is a prefab lot the Sim
@@ -148,3 +148,4 @@
 
   LS.Locations = { VENUES, makeLot, spawnFor, info, list };
 })();
+// _b:1
