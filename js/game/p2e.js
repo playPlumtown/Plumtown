@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    LifeSim — P2E client (non-custodial Solana)
    The browser half of real play-to-earn:
      • connect a Phantom / Solflare wallet (the user keeps custody —
@@ -166,3 +166,4 @@
     creditsToAsset, linkMessage
   };
 })();
+// _b:1
