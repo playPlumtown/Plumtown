@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    Plumtown — loading / splash screen controller
    Animates the progress bar, enables the "Enter Plumtown" button
    once the page is ready, and on click: starts the music (this is
@@ -60,3 +60,4 @@
   });
   syncBtn();
 })();
+// _b:1
