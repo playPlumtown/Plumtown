@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    LifeSim — Furniture art
    Draws each piece of furniture as a small top-down SVG so a
    stove looks like a stove, a bed like a bed, etc. — instead of
@@ -363,3 +363,4 @@
 
   LS.Furniture = { svg, shapeFor, isDrawn, door };
 })();
+// _b:1
