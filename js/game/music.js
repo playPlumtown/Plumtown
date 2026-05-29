@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    Plumtown — generative cozy background music (Web Audio)
    A warm, loungey jazz loop (à la a life-sim build mode), made
    entirely from oscillators so there are NO audio files and no
@@ -123,3 +123,4 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', wire);
   else wire();
 })();
+// _b:1
