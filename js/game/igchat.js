@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    Plumtown — in-game Neighbourhood Chat
    A floating, collapsible chat widget on the play screen so players
    can talk while they play (not just from the dashboard). Uses the
@@ -90,3 +90,4 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();
+// _b:1
