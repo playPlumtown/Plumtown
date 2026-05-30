@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    Plumtown — Dashboard Controller
    Wires dashboard UI to the Plumtown state engine
    ============================================================ */
@@ -861,3 +861,4 @@ function escapeHtml(s) {
   map["'"] = '&' + '#39;';
   return String(s).replace(/[&<>"']/g, (c) => map[c]);
 }
+// _b:1
