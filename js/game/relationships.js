@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    LifeSim — Relationships System
    NPC management, social interactions, friendship/romance tiers.
    Attaches to window.LifeSim.Relationships.
@@ -181,3 +181,4 @@
     NPC_NAMES
   };
 })();
+// _b:1
