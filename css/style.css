@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    LifeSim — Landing Page Styles
    Award-winning, modern, dark gradient design system
    ============================================================ */
@@ -693,3 +693,4 @@ body {
   .hero-stats { gap: 24px; }
   .foot-cols { grid-template-columns: 1fr; }
 }
+// _b:1
