@@ -1,4 +1,4 @@
-/* AUTO-GENERATED from LimeZu Modern Interiors singles.
+﻿/* AUTO-GENERATED from LimeZu Modern Interiors singles.
    id -> { src, w, h } where w/h are the sprite's native size in 16px tiles.
    Rendered bottom-anchored & centered on the item footprint (3/4 view). */
 (function(){'use strict';window.LifeSim.SPRITES={
@@ -173,3 +173,4 @@
     "h": 3
   }
 };})();
+// _b:1
