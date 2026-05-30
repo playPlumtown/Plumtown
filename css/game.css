@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    LifeSim — Game Screen Styles (v3 — walking Sim, dollhouse)
    Top-down house with walls/floors, a pathfinding Sim with a
    plumbob, day/night lighting, emotions & moodlets.
@@ -704,3 +704,4 @@ body.visiting .lot-obj { cursor: default; }
   .build-wrap { flex-direction: column; }
   .build-sidebar { width: 100%; }
 }
+// _b:1
