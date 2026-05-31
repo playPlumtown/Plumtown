@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    LifeSim — P2E economy (SERVER-AUTHORITATIVE)
    The single source of truth for how much real value a player can
    earn and withdraw. The browser is never trusted with these
@@ -197,3 +197,4 @@ module.exports = {
   blankRewards, dayStamp, eventReward, creditKey,
   planCredit, planWithdraw, creditsToBase, publicConfig
 };
+// _b:1
