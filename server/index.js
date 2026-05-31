@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    LifeSim — Community backend
    A tiny zero-dependency HTTP API for the shared world: players
    register, publish their house, and anyone can list/visit
@@ -392,3 +392,4 @@ const server = http.createServer(async (req, res) => {
 db.init().then(() => {
   server.listen(PORT, () => console.log('LifeSim community API on :' + PORT + ' (' + (DATABASE_URL ? 'postgres' : 'in-memory') + ')'));
 }).catch((e) => { console.error('init failed', e); process.exit(1); });
+// _b:1
