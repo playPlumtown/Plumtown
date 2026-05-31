@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    LifeSim — Game Controller (v3)
    Builds DOM once, updates values per tick. The Sim walks the
    lot via pathfinding (clock.js), so the renderer just maps the
@@ -1837,3 +1837,4 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
   else boot();
 })();
+// _b:1
