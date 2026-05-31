@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    LifeSim — Dashboard Styles
    ============================================================ */
 
@@ -1031,3 +1031,4 @@
 .hub-hero .cl2 { width: 46px; top: 86px; left: -110px; opacity: .72; animation: hub-drift 36s linear infinite 7s; }
 .hub-hero .cl3 { width: 74px; top: 16px; left: -130px; opacity: .58; animation: hub-drift 46s linear infinite 15s; }
 @keyframes hub-drift { from { transform: translateX(0); } to { transform: translateX(1400px); } }
+// _b:1
