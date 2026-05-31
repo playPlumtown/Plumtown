@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    Plumtown — site loading / splash screen
    Shows the branded splash while the landing page loads, fills the
    progress bar, then fades away automatically. No click needed.
@@ -28,3 +28,4 @@
   setTimeout(tick, 150);
   setTimeout(dismiss, 6000); // safety: never trap the user
 })();
+// _b:1
