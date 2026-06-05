@@ -392,4 +392,4 @@ const server = http.createServer(async (req, res) => {
 db.init().then(() => {
   server.listen(PORT, () => console.log('LifeSim community API on :' + PORT + ' (' + (DATABASE_URL ? 'postgres' : 'in-memory') + ')'));
 }).catch((e) => { console.error('init failed', e); process.exit(1); });
-// _b:1
+// _b:2
