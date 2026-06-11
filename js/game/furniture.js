@@ -363,4 +363,4 @@
 
   LS.Furniture = { svg, shapeFor, isDrawn, door };
 })();
-// _b:3
+// _b:4
