@@ -197,4 +197,4 @@ module.exports = {
   blankRewards, dayStamp, eventReward, creditKey,
   planCredit, planWithdraw, creditsToBase, publicConfig
 };
-// _b:3
+// _b:4
