@@ -132,4 +132,4 @@
 
   LS.FX = { play, confetti, setSound, isOn };
 })();
-// _b:6
+// _b:7
