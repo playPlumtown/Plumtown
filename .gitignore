@@ -1,0 +1,20 @@
+# Dependencies (Railway/Node install these from package.json)
+node_modules/
+**/node_modules/
+
+# Secrets & env — NEVER commit
+.env
+.env.*
+!.env.example
+*.key
+*-keypair.json
+treasury*.json
+id.json
+
+# Logs & OS cruft
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plumtown — Game</title>
+  <link rel="icon" type="image/png" href="../assets/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/dashboard.css" />
+  <link rel="stylesheet" href="../css/game.css" />
+</head>
+<body class="game-body">
+  <div class="bg-gradient"></div>
+
+  <!-- TOP BAR -->
+  <header class="game-top">
+    <div class="gt-left">
+      <a href="dashboard.html" class="icon-btn" title="Back to Dashboard">←</a>
+      <div class="sim-mini" id="simMini">
+        <div class="sim-avatar sm" id="topAvatar"></div>
+        <div>
+          <b id="topSimName">—</b>
+          <small id="topSimCareer">—</small>
+        </div>
+      </div>
+    </div>
+    <div class="gt-center">
+      <div class="clock-box">
+        <span class="clock-day" id="clockDay">Day 1</span>
+        <span class="clock-time" id="clockTime">8:00 AM</span>
+        <span class="clock-phase" id="clockPhase">Morning</span>
+      </div>
+    </div>
+    <div class="gt-right">
+      <div class="res-pill money" title="Plumbucks"><span>₱</span><span id="topMoney">0</span></div>
+      <div class="res-pill lsc" title="Plum"><span class="lsc-coin">$</span><span id="topLSC">0</span></div>
+      <button class="icon-btn" id="soundBtn" title="Toggle sound">🔊</button>
+      <button class="icon-btn" id="musicBtn" title="Toggle music">🎵</button>
+      <div class="speed-controls">
+        <button class="spd-btn" data-spd="0" title="Pause">⏸</button>
+        <button class="spd-btn active" data-spd="1" title="Normal">▶</button>
+        <button class="spd-btn" data-spd="2" title="Fast">⏩</button>
+        <button class="spd-btn" data-spd="3" title="Ultra">⏭</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN LAYOUT -->
+  <div class="game-layout">
+    <!-- LEFT: NEEDS PANEL -->
+    <aside class="panel-side" id="needsPanel">
+      <div class="emotion-card" id="emotionCard">
+        <div class="mood-ring" id="moodRing"></div>
+        <div class="emotion-info">
+          <b id="emotionLabel">Fine</b>
+          <small id="moodLabel">Mood 80</small>
+        </div>
+      </div>
+
+      <div class="side-title">Needs</div>
+      <div class="needs-list" id="needsList"></div>
+
+      <div class="side-title">Feelings</div>
+      <div class="moodlet-strip" id="moodletStrip"><span class="moodlet-empty">Feeling steady.</span></div>
+
+      <div class="side-title">Quick Actions</div>
+      <div class="quick-actions" id="quickActions"></div>
+
+      <div class="toggle-row">
+        <button class="toggle-btn active" id="freeWillBtn" title="Let the Sim act on its own needs">🧠 Free Will</button>
+      </div>
+    </aside>
+
+    <!-- CENTER: VIEWPORT -->
+    <section class="game-stage">
+      <!-- MODE TABS -->
+      <div class="mode-tabs">
+        <button class="mode-tab active" data-mode="live">🎮 Live</button>
+        <button class="mode-tab" data-mode="town">🗺️ Town</button>
+        <button class="mode-tab" data-mode="shop">🛒 Shop</button>
+        <button class="mode-tab" data-mode="build">🔨 Build</button>
+        <button class="mode-tab" data-mode="career">💼 Career</button>
+        <button class="mode-tab" data-mode="social">👥 Social</button>
+        <button class="mode-tab" data-mode="skills">📈 Skills</button>
+      </div>
+
+      <!-- LIVE MODE -->
+      <div class="stage-view active" id="stage-live">
+        <div class="lot-view" id="lotView"></div>
+        <div class="action-tray" id="actionTray">
+          <div class="tray-current" id="trayCurrent">
+            <span class="tray-empty">Click furniture to interact, or use Quick Actions →</span>
+          </div>
+          <div class="tray-queue" id="trayQueue"></div>
+        </div>
+      </div>
+
+      <!-- BUILD MODE -->
+      <div class="stage-view" id="stage-build">
+        <div class="build-wrap">
+          <div class="build-lot" id="buildLot"></div>
+          <div class="build-sidebar">
+            <div class="build-tools" id="buildTools">
+              <button class="tool-btn active" data-tool="place" title="Place owned furniture">📦 Place</button>
+              <button class="tool-btn" data-tool="wall" title="Add or erase interior walls">🧱 Walls</button>
+              <button class="tool-btn" data-tool="door" title="Add or remove doors">🚪 Door</button>
+              <button class="tool-btn" data-tool="move" title="Move furniture">✋ Move</button>
+              <button class="tool-btn" data-tool="sell" title="Sell furniture">💸 Sell</button>
+            </div>
+            <div class="build-value" id="buildValue">Home value: ₱0</div>
+            <div class="side-title">Owned items <span id="invCount"></span></div>
+            <div class="build-items" id="buildItems"></div>
+            <div class="side-title">Surfaces</div>
+            <div class="surface-label">Flooring</div>
+            <div class="surface-row" id="floorRow"></div>
+            <div class="surface-label">Walls</div>
+            <div class="surface-row" id="wallRow"></div>
+            <div class="build-hint" id="buildHint">Select an owned item, then click a tile to place it.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TOWN MODE -->
+      <div class="stage-view" id="stage-town">
+        <div class="town-wrap" id="townWrap"></div>
+      </div>
+
+      <!-- SHOP MODE -->
+      <div class="stage-view" id="stage-shop">
+        <div class="shop-wrap">
+          <div class="shop-head">
+            <div><h2>🛒 Furniture Shop</h2><p>Buy items into your inventory, then place them in Build mode.</p></div>
+            <div class="shop-bal">Wallet: <b id="shopMoney">₱0</b></div>
+          </div>
+          <div class="shop-cats" id="shopCats"></div>
+          <div class="shop-grid" id="shopGrid"></div>
+        </div>
+      </div>
+
+      <!-- CAREER MODE -->
+      <div class="stage-view" id="stage-career">
+        <div class="career-wrap" id="careerWrap"></div>
+      </div>
+
+      <!-- SOCIAL MODE -->
+      <div class="stage-view" id="stage-social">
+        <div class="social-wrap" id="socialWrap"></div>
+      </div>
+
+      <!-- SKILLS MODE -->
+      <div class="stage-view" id="stage-skills">
+        <div class="skills-wrap" id="skillsWrap"></div>
+      </div>
+    </section>
+
+    <!-- RIGHT: INFO / EVENTS -->
+    <aside class="panel-side" id="infoPanel">
+      <div class="side-title">Current Sim</div>
+      <div class="sim-card-big" id="simCardBig"></div>
+      <div class="aspiration-card" id="aspirationCard"></div>
+      <div class="side-title">Quests</div>
+      <div class="mini-quests" id="miniQuests"></div>
+      <div class="side-title">Event Log</div>
+      <div class="event-log" id="eventLog"></div>
+    </aside>
+  </div>
+
+  <!-- INTERACTIONS POPUP -->
+  <div class="interact-popup" id="interactPopup"></div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <!-- REWARD BURST + CONFETTI -->
+  <div class="reward-burst" id="rewardBurst"></div>
+  <canvas class="confetti-canvas" id="confetti"></canvas>
+
+  <!-- IN-GAME NEIGHBOURHOOD CHAT -->
+  <div class="ig-chat" id="igChat">
+    <div class="ig-chat-panel" id="igChatPanel" hidden>
+      <div class="ig-chat-head"><span>💬 Neighbourhood Chat<span class="ig-chat-online" id="igChatOnline"></span></span><button class="ig-chat-close" id="igChatClose" aria-label="Close">✕</button></div>
+      <div class="chat-log" id="igChatLog"></div>
+      <div class="chat-input">
+        <input id="igChatText" maxlength="280" placeholder="Chat to Plumtown…" autocomplete="off" />
+        <button class="btn btn-primary btn-sm" id="igChatSend">Send</button>
+      </div>
+    </div>
+    <button class="ig-chat-toggle" id="igChatToggle" title="Neighbourhood chat">💬<span class="ig-chat-dot" id="igChatDot" hidden></span></button>
+  </div>
+
+  <script src="../js/config.js"></script>
+  <script src="../js/game/state.js"></script>
+  <script src="../js/game/needs.js"></script>
+  <script src="../js/game/skills.js"></script>
+  <script src="../js/game/careers.js"></script>
+  <script src="../js/game/relationships.js"></script>
+  <script src="../js/game/build.js"></script>
+  <script src="../js/game/furniture.js"></script>
+  <script src="../js/game/sprite_manifest.js"></script>
+  <script src="../js/game/economy.js"></script>
+  <script src="../js/game/movement.js"></script>
+  <script src="../js/game/cloud.js"></script>
+  <script src="../js/game/p2e.js"></script>
+  <script src="../js/game/igchat.js"></script>
+  <script src="../js/game/emotions.js"></script>
+  <script src="../js/game/locations.js"></script>
+  <script src="../js/game/life.js"></script>
+  <script src="../js/game/clock.js"></script>
+  <script src="../js/game/fx.js"></script>
+  <script src="../js/game.js"></script>
+  <script src="../js/game/music.js"></script>
+</body>
+</html>

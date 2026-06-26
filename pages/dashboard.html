@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — Plumtown</title>
+  <link rel="icon" type="image/png" href="../assets/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800;900&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/dashboard.css" />
+</head>
+<body class="dash-body">
+  <div class="bg-gradient"></div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <a href="../index.html" class="brand">
+      <div class="brand-mark">PT</div>
+      <span class="brand-text">Plum<span class="accent">town</span></span>
+    </a>
+    <nav class="side-nav">
+      <a href="#" class="side-link active" data-view="overview"><span class="ic">🏠</span> Overview</a>
+      <a href="#" class="side-link" data-view="howitworks"><span class="ic">❓</span> How it Works</a>
+      <a href="#" class="side-link" data-view="sims"><span class="ic">🧍</span> My Sims</a>
+      <a href="#" class="side-link" data-view="wallet"><span class="ic">💰</span> Wallet</a>
+      <a href="#" class="side-link" data-view="quests"><span class="ic">🎯</span> Quests</a>
+      <a href="#" class="side-link" data-view="community"><span class="ic">🌍</span> Community</a>
+      <a href="#" class="side-link" data-view="settings"><span class="ic">⚙️</span> Settings</a>
+    </nav>
+    <div class="side-foot">
+      <a href="../index.html" class="back-home">← Back to home</a>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="dash-main">
+    <!-- TOPBAR -->
+    <header class="dash-top">
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+      <div class="search">
+        <input type="text" placeholder="Search Plumtown…" />
+      </div>
+      <div class="top-right">
+        <a href="../index.html" class="btn btn-ghost btn-sm dash-home" title="Plumtown home page">🏠 Home</a>
+        <div class="lsc-pill">
+          <span class="lsc-coin">$</span>
+          <span id="lscBalance">0</span> PLUM
+        </div>
+        <button class="icon-btn" id="notifBtn" aria-label="Notifications">🔔<span class="dot"></span></button>
+        <div class="user-chip">
+          <div class="avatar">PL</div>
+          <div class="uc-info"><b>Player</b><small>Level 1</small></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- CONTENT -->
+    <div class="dash-content">
+      <!-- OVERVIEW VIEW -->
+      <section class="view active" id="view-overview">
+        <!-- HERO: what is the game + primary action -->
+        <div class="hub-hero">
+          <div class="hero-deco" aria-hidden="true">
+            <span class="hero-sun"></span>
+            <span class="hero-cloud cl1"></span>
+            <span class="hero-cloud cl2"></span>
+            <span class="hero-cloud cl3"></span>
+          </div>
+          <div class="hub-hero-text">
+            <span class="hub-eyebrow">Play-to-Earn Life Simulator</span>
+            <h1 id="hubGreeting">Welcome to Plumtown</h1>
+            <p>Create a Sim and live their whole life — manage needs &amp; moods, build and furnish a home, climb a career, make friends, fall in love and start a family. Every milestone earns <b>$PLUM</b> you can withdraw.</p>
+            <div class="hub-cta">
+              <a href="game.html" class="btn btn-primary btn-lg" id="hubPlay">▶ Play</a>
+              <button class="btn btn-ghost btn-lg" id="hubCreate">+ Create a Sim</button>
+            </div>
+          </div>
+          <div class="hub-hero-art">
+            <div class="hha-frame">
+              <div class="hha-bar"><span></span><span></span><span></span></div>
+              <img src="../assets/game-preview.png" alt="Plumtown gameplay preview" loading="lazy" />
+            </div>
+          </div>
+          <div class="hero-sims" aria-hidden="true">
+            <span class="hero-sim s1"></span>
+            <span class="hero-sim s2"></span>
+            <span class="hero-sim s3"></span>
+          </div>
+        </div>
+
+        <!-- HOW IT WORKS -->
+        <div class="hub-steps">
+          <div class="hub-step"><div class="hs-top"><span class="hs-num">1</span><span class="hs-ic">🧍</span></div><b>Create a Sim</b><small>Pick their look, three traits and a lifetime goal.</small></div>
+          <div class="hub-step"><div class="hs-top"><span class="hs-num">2</span><span class="hs-ic">🏠</span></div><b>Live &amp; build</b><small>Keep them happy, shop, build a home, get a job &amp; skills.</small></div>
+          <div class="hub-step"><div class="hs-top"><span class="hs-num">3</span><span class="hs-ic">❤️</span></div><b>Socialize</b><small>Explore town, make friends, fall in love, raise a family.</small></div>
+          <div class="hub-step"><div class="hs-top"><span class="hs-num">4</span><span class="hs-ic">💰</span></div><b>Earn $PLUM</b><small>Hit milestones to earn coins, then withdraw them.</small></div>
+        </div>
+
+        <!-- YOUR SIMS + WALLET / DAILY -->
+        <div class="hub-main">
+          <div class="panel">
+            <div class="panel-head"><h3>Your Sims</h3><button class="btn btn-ghost btn-sm" id="newSimBtn">+ New Sim</button></div>
+            <div class="sim-list" id="simList"></div>
+          </div>
+          <div class="hub-side">
+            <div class="panel hub-wallet">
+              <div class="hw-top"><span class="hw-logo">$PLUM</span><a href="#" class="link" data-view="wallet">Wallet →</a></div>
+              <div class="hw-amount"><span id="statLSC">0</span> <em>PLUM</em></div>
+              <div class="hw-usd">≈ $<span id="statUSD">0.00</span> USD</div>
+            </div>
+            <div class="panel daily-panel">
+              <div class="panel-head"><h3>Daily Reward</h3></div>
+              <div class="daily-reward">
+                <div class="dr-circle"><span class="dr-amount" id="drAmount">+50</span><span class="dr-label">PLUM</span></div>
+                <button class="btn btn-primary btn-block" id="claimDaily">Claim Now</button>
+                <small class="dr-timer" id="drTimer">Ready to claim!</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ACTIVITY -->
+        <div class="panel">
+          <div class="panel-head"><h3>Recent Activity</h3></div>
+          <div class="feed" id="activityFeed"></div>
+        </div>
+      </section>
+
+      <!-- HOW IT WORKS VIEW -->
+      <section class="view" id="view-howitworks">
+        <div class="view-head">
+          <div><h1>How it Works</h1><p>Live a whole Sim life — and turn real milestones into real rewards.</p></div>
+        </div>
+
+        <!-- THE GAME LOOP -->
+        <div class="panel">
+          <div class="panel-head"><h3>The Game Loop</h3></div>
+          <div class="hub-steps" style="margin:0;">
+            <div class="hub-step"><div class="hs-top"><span class="hs-num">1</span><span class="hs-ic">🧍</span></div><b>Create a Sim</b><small>Pick a look, three traits and a lifetime aspiration. Every Sim plays differently.</small></div>
+            <div class="hub-step"><div class="hs-top"><span class="hs-num">2</span><span class="hs-ic">🏠</span></div><b>Live &amp; Build</b><small>Keep needs &amp; moods in the green, furnish a home, land a job and grow skills.</small></div>
+            <div class="hub-step"><div class="hs-top"><span class="hs-num">3</span><span class="hs-ic">❤️</span></div><b>Socialize</b><small>Roam town, make friends, fall in love, start a family — every bond is a story.</small></div>
+            <div class="hub-step"><div class="hs-top"><span class="hs-num">4</span><span class="hs-ic">💰</span></div><b>Hit Milestones</b><small>Promotions, finished aspirations and first-time moments mint coins.</small></div>
+          </div>
+        </div>
+
+        <!-- THREE CURRENCIES -->
+        <div class="panel">
+          <div class="panel-head"><h3>Three Kinds of Coin</h3></div>
+          <div class="hiw-grid">
+            <div class="hiw-card"><span class="hiw-badge soft">In-game</span><b>$PLUM — Plum</b><p>Earned endlessly by playing. Spend it in-game on furniture and upgrades. It is your score and your pocket money — fun, but it is <b>not</b> real money on its own.</p></div>
+            <div class="hiw-card"><span class="hiw-badge sun">Verified</span><b>Redeemable Credits</b><p>Minted only by <b>curated achievements the server recognizes</b> — daily claim, quest completion, life milestones — and only <b>once per account</b>. The server is the sole authority, so a tampered client earns nothing. Daily &amp; yearly caps apply.</p></div>
+            <div class="hiw-card"><span class="hiw-badge sky">On-chain</span><b>Real SOL / USDC</b><p>When you withdraw, the backend debits your credits and sends real crypto straight to <b>your</b> Phantom wallet. You hold your own keys — the operator never custodies your funds.</p></div>
+          </div>
+        </div>
+
+        <!-- CASH-OUT FLOW -->
+        <div class="panel">
+          <div class="panel-head"><h3>Cashing Out — Step by Step</h3></div>
+          <ol class="hiw-flow">
+            <li><span class="hiw-n">1</span><div><b>Play &amp; earn credits.</b> Claim your daily reward and complete quests &amp; milestones. Only server-verified achievements add Redeemable Credits.</div></li>
+            <li><span class="hiw-n">2</span><div><b>Sign in on the Community tab.</b> Enter a display name to join the shared world — this links your progress to a server account.</div></li>
+            <li><span class="hiw-n">3</span><div><b>Connect Phantom.</b> Open the Wallet tab → Redeemable Rewards → <b>Connect Phantom</b> and approve in your wallet to link &amp; verify it.</div></li>
+            <li><span class="hiw-n">4</span><div><b>Withdraw.</b> Hit <b>Withdraw to wallet</b>. The server deducts credits and sends real SOL/USDC. It appears in Recent Payouts with an explorer link.</div></li>
+          </ol>
+          <div class="p2e-warn" style="margin-top:16px;"><b>Honest note:</b> Real payouts are <b>operator-funded and optional</b>. They require the backend to be live with payouts enabled, are subject to minimums, daily caps and cooldowns, and may run in test mode (devnet) where coins have <b>no real value</b>. $PLUM alone can never be cashed out — only verified credits can. Play for the life sim first; the rewards are a bonus.</div>
+        </div>
+      </section>
+
+      <!-- SIMS VIEW -->
+      <section class="view" id="view-sims">
+        <div class="view-head">
+          <div><h1>My Sims</h1><p>Create, manage, and play your virtual characters.</p></div>
+          <button class="btn btn-primary" id="newSimBtn3">+ Create Sim</button>
+        </div>
+        <div class="sim-list" id="simListFull"></div>
+      </section>
+
+      <!-- WALLET VIEW -->
+      <section class="view" id="view-wallet">
+        <div class="view-head"><div><h1>Wallet</h1><p>Track your earned $PLUM and withdraw to an external wallet.</p></div></div>
+        <div class="token-strip">
+          <div class="ts-logo">$PLUM</div>
+          <div class="ts-info"><b>Plum</b><small>PLUM · Reward Token</small></div>
+          <div class="ts-price"><strong id="lscPrice">$0.042</strong><span class="up" id="lscChange">+12.4%</span></div>
+          <svg class="ts-spark" id="lscSpark" viewBox="0 0 320 60" preserveAspectRatio="none">
+            <defs><linearGradient id="lg" x1="0" x2="1"><stop offset="0" stop-color="#7c5cff"/><stop offset="1" stop-color="#00e0c6"/></linearGradient></defs>
+            <polyline id="lscSparkLine" points="" fill="none" stroke="url(#lg)" stroke-width="2.5"/>
+          </svg>
+        </div>
+        <div class="wallet-grid">
+          <div class="panel">
+            <div class="panel-head"><h3>Balance</h3></div>
+            <div class="wallet-balance">
+              <div class="wb-amount"><span id="walletLSC">0</span> <small>PLUM</small></div>
+              <div class="wb-usd">≈ $<span id="walletUSD">0.00</span> USD</div>
+              <div class="wallet-connect" id="walletConnect"></div>
+              <button class="btn btn-primary" id="withdrawBtn">Withdraw</button>
+            </div>
+          </div>
+          <div class="panel span-2">
+            <div class="panel-head"><h3>Transaction History</h3></div>
+            <div class="tx-list" id="txList">
+              <div class="empty-state small"><p>No transactions yet. Earn $PLUM by playing!</p></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- REDEEMABLE REWARDS — real on-chain Solana payouts -->
+        <div class="panel p2e-panel" id="p2ePanel" hidden>
+          <div class="panel-head">
+            <h3>💎 Redeemable Rewards <span class="p2e-asset" id="p2eAsset"></span></h3>
+            <span class="p2e-net" id="p2eNet"></span>
+          </div>
+          <div class="p2e-body" id="p2eBody">
+            <div class="community-loading">Loading rewards…</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- QUESTS VIEW -->
+      <section class="view" id="view-quests">
+        <div class="view-head"><div><h1>Quests</h1><p>Complete objectives to earn $PLUM rewards.</p></div></div>
+        <div class="quest-list" id="questFull"></div>
+      </section>
+
+      <!-- COMMUNITY VIEW -->
+      <section class="view" id="view-community">
+        <div class="view-head"><div><h1>🌍 Community</h1><p>Browse the neighbourhood and visit other players' homes.</p></div></div>
+        <div id="communityHeader"></div>
+        <div class="community-stats" id="communityStats"></div>
+        <div class="panel chat-panel" id="chatPanel">
+          <div class="panel-head"><h3>💬 Neighbourhood Chat</h3></div>
+          <div class="chat-log" id="chatLog"></div>
+          <div class="chat-input">
+            <input id="chatText" maxlength="280" placeholder="Say something to Plumtown…" autocomplete="off" />
+            <button class="btn btn-primary btn-sm" id="chatSend">Send</button>
+          </div>
+        </div>
+        <div class="community-grid" id="communityGrid"></div>
+      </section>
+
+      <!-- SETTINGS VIEW -->
+      <section class="view" id="view-settings">
+        <div class="view-head"><div><h1>Settings</h1><p>Manage your account and game preferences.</p></div></div>
+        <div class="panel">
+          <div class="panel-head"><h3>Player Profile</h3></div>
+          <div class="settings-form">
+            <label>Display Name<input type="text" value="Player" id="setName"/></label>
+            <label>Wallet Address<input type="text" placeholder="0x… (optional)" id="setWallet"/></label>
+            <div class="setting-row">
+              <span>Auto-save game</span>
+              <label class="switch"><input type="checkbox" checked id="setAutosave"/><span></span></label>
+            </div>
+            <div class="setting-row">
+              <span>Sound effects</span>
+              <label class="switch"><input type="checkbox" checked id="setSound"/><span></span></label>
+            </div>
+            <button class="btn btn-primary" id="saveSettings">Save Settings</button>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><h3>Danger Zone</h3></div>
+          <button class="btn btn-danger" id="resetAll">Reset All Progress</button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- SIM CREATOR MODAL -->
+  <div class="modal" id="simModal">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h2>Create a Sim</h2>
+        <button class="icon-btn" id="closeModal">✕</button>
+      </div>
+      <div class="modal-body">
+        <label>Sim Name<input type="text" id="simName" placeholder="e.g. Alex Carter"/></label>
+        <div class="form-row">
+          <label>Aspiration
+            <select id="simAspiration">
+              <option value="wealth">Wealth — maximize earnings</option>
+              <option value="knowledge">Knowledge — master skills</option>
+              <option value="family">Family — build relationships</option>
+              <option value="creativity">Creativity — create art</option>
+              <option value="athletic">Athletic — peak fitness</option>
+            </select>
+          </label>
+          <label>Gender
+            <select id="simGender">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="nb">Non-binary</option>
+            </select>
+          </label>
+        </div>
+        <div class="form-row">
+          <label>Skin Tone
+            <div class="tone-row" id="skinToneRow"></div>
+          </label>
+          <label>Outfit Color
+            <div class="tone-row" id="outfitColorRow"></div>
+          </label>
+        </div>
+        <label>Hair Color
+          <div class="tone-row" id="hairColorRow"></div>
+        </label>
+        <label>Traits (pick 3)
+          <div class="trait-grid" id="traitGrid"></div>
+        </label>
+        <div class="sim-preview">
+          <div class="sim-avatar" id="simPreviewAvatar">
+            <div class="sa-hair"></div>
+            <div class="sa-head"></div>
+            <div class="sa-body"></div>
+          </div>
+          <div class="sp-info">
+            <b id="spName">New Sim</b>
+            <small id="spAsp">Wealth</small>
+          </div>
+        </div>
+      </div>
+      <div class="modal-foot">
+        <button class="btn btn-ghost" id="cancelSim">Cancel</button>
+        <button class="btn btn-primary" id="createSim">Create & Save</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- WELCOME / FIRST-LOAD TUTORIAL -->
+  <div class="modal" id="welcomeModal">
+    <div class="modal-card welcome-card">
+      <div class="welcome-hero">
+        <span class="welcome-plumbob"></span>
+        <h2>Welcome to Plumtown</h2>
+        <p>A cozy life sim where every milestone earns coins.</p>
+      </div>
+      <div class="modal-body">
+        <ul class="welcome-list">
+          <li><span class="wl-ic">🧍</span><div><b>Create a Sim</b><small>Looks, traits and a lifetime goal.</small></div></li>
+          <li><span class="wl-ic">🏠</span><div><b>Live their life</b><small>Build a home, work, make friends, fall in love.</small></div></li>
+          <li><span class="wl-ic">💰</span><div><b>Earn &amp; withdraw</b><small>Hit milestones for $PLUM — real rewards are optional.</small></div></li>
+        </ul>
+      </div>
+      <div class="modal-foot welcome-foot">
+        <button class="btn btn-ghost" id="welcomeHow">How it works</button>
+        <button class="btn btn-primary btn-lg" id="welcomeStart">Create your Sim →</button>
+      </div>
+      <button class="icon-btn welcome-x" id="welcomeClose" aria-label="Close">✕</button>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <script src="../js/config.js"></script>
+  <script src="../js/game/state.js"></script>
+  <script src="../js/game/skills.js"></script>
+  <script src="../js/game/relationships.js"></script>
+  <script src="../js/game/build.js"></script>
+  <script src="../js/game/sprite_manifest.js"></script>
+  <script src="../js/game/movement.js"></script>
+  <script src="../js/game/locations.js"></script>
+  <script src="../js/game/cloud.js"></script>
+  <script src="../js/game/p2e.js"></script>
+  <script src="../js/dashboard.js"></script>
+</body>
+</html>

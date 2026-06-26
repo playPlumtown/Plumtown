@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plumtown — Play-to-Earn Life Simulator</title>
+  <meta name="description" content="Plumtown is a next-generation play-to-earn life simulation game. Build a virtual life, grow your career, socialize, and earn real rewards." />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800;900&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/landing-theme.css" />
+</head>
+<body>
+  <!-- Animated background -->
+  <div class="bg-gradient"></div>
+  <div class="bg-grid"></div>
+
+  <!-- LOADING / SPLASH SCREEN (site load) -->
+  <div class="plum-loader" id="plumLoader">
+    <div class="pl-card">
+      <img class="pl-logo" src="assets/plumtown-logo.png" alt="Plumtown" />
+      <h1 class="pl-title">Plum<span>town</span></h1>
+      <p class="pl-sub">A cozy life sim where milestones earn real rewards.</p>
+      <div class="pl-bar"><span id="plBarFill"></span></div>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#hero" class="brand">
+        <div class="brand-mark">PT</div>
+        <span class="brand-text">Plum<span class="accent">town</span></span>
+      </a>
+      <nav class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#gameplay">Gameplay</a>
+        <a href="#economy">Economy</a>
+        <a href="#p2e">Earn</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="nav-cta">
+        <a href="pages/dashboard.html" class="btn btn-ghost">Sign In</a>
+        <a href="pages/dashboard.html" class="btn btn-primary">Launch App →</a>
+        <div class="nav-social">
+          <a href="https://pump.fun/" target="_blank" rel="noopener" class="soc pump" aria-label="Pump.fun" title="Pump.fun">
+            <img src="assets/pumpfun.png" alt="Pump.fun" />
+          </a>
+          <a href="https://x.com/playPlumtown" target="_blank" rel="noopener" class="soc" aria-label="X" title="X (Twitter)">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M18.9 1.5h3.3l-7.2 8.2 8.5 11.3h-6.7l-5.2-6.9-6 6.9H1.5l7.7-8.8L1 1.5h6.9l4.7 6.3 6.3-6.3Zm-1.2 18.1h1.8L7.1 3.3H5.2l12.5 16.3Z"/></svg>
+          </a>
+          <a href="https://github.com/playPlumtown/Plumtown" target="_blank" rel="noopener" class="soc" aria-label="GitHub" title="GitHub">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17 4.6 18 4.9 18 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5Z"/></svg>
+          </a>
+        </div>
+      </div>
+      <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-deco" aria-hidden="true">
+      <span class="hero-sun"></span>
+      <span class="hero-cloud cl1"></span>
+      <span class="hero-cloud cl2"></span>
+      <span class="hero-cloud cl3"></span>
+    </div>
+    <div class="hero-content">
+      <div class="pill">
+        <span class="pulse"></span> Now Live · Built on the Plumtown Engine
+      </div>
+      <h1 class="hero-title">
+        Live a Virtual Life.<br/>
+        <span class="grad-text">Earn Real Rewards.</span>
+      </h1>
+      <p class="hero-sub">
+        Plumtown is a next-generation play-to-earn life simulation. Create your Sim, build a home, chase a career, form relationships, and watch every choice ripple through a living economy — where in-game success turns into token rewards.
+      </p>
+      <div class="hero-cta">
+        <a href="pages/dashboard.html" class="btn btn-primary btn-lg">Play Now — It's Free</a>
+        <a href="#gameplay" class="btn btn-ghost btn-lg">See How It Works</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>12</strong><span>Skills to master</span></div>
+        <div><strong>10</strong><span>Career paths</span></div>
+        <div><strong>8</strong><span>Needs &amp; moods</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="orb"></div>
+      <div class="browser-frame">
+        <div class="bf-bar">
+          <span class="bf-dot r"></span><span class="bf-dot y"></span><span class="bf-dot g"></span>
+          <div class="bf-url">🔒 plumtown.app/play</div>
+        </div>
+        <img src="assets/game-preview.png" alt="Plumtown gameplay — a Sim living in a custom-built home with needs, emotions and careers" loading="lazy" />
+      </div>
+      <div class="float-card card-1">
+        <div class="fc-icon">🏠</div>
+        <div><b>Home Built</b><small>+ 250 $PLUM</small></div>
+      </div>
+      <div class="float-card card-2">
+        <div class="fc-icon">💼</div>
+        <div><b>Promotion!</b><small>Engineer II → III</small></div>
+      </div>
+      <div class="float-card card-3">
+        <div class="fc-icon">❤️</div>
+        <div><b>New Romance</b><small>Relationship +42</small></div>
+      </div>
+    </div>
+    <div class="hero-sims" aria-hidden="true">
+      <span class="hero-sim s1"></span>
+      <span class="hero-sim s2"></span>
+      <span class="hero-sim s3"></span>
+    </div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <div class="trust-strip">
+    <span>🔓 Non-custodial</span>
+    <span>🚫 No pay-to-win</span>
+    <span>🆓 Free to play</span>
+    <span>⛓️ On-chain rewards</span>
+    <span>🎮 Plays in your browser</span>
+  </div>
+
+  <!-- MARQUEE -->
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>● CREATE</span><span>● BUILD</span><span>● WORK</span><span>● SOCIALIZE</span><span>● GROW</span><span>● EARN</span><span>● CREATE</span><span>● BUILD</span><span>● WORK</span><span>● SOCIALIZE</span><span>● GROW</span><span>● EARN</span>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <section class="section" id="features">
+    <div class="section-head">
+      <span class="eyebrow">Core Mechanics</span>
+      <h2>Everything that makes life worth living — simulated.</h2>
+      <p>A deep systems-driven sandbox where needs, skills, careers, and relationships all interlock the way a real life does.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card feature-card">
+        <div class="f-icon">🧬</div>
+        <h3>Eight Needs System</h3>
+        <p>Hunger, Energy, Bladder, Hygiene, Social, Fun, Comfort & Room. Each decays in real time and shapes your Sim's mood and productivity.</p>
+      </div>
+      <div class="card feature-card">
+        <div class="f-icon">📈</div>
+        <h3>Skill Progression</h3>
+        <p>Master 12 skills from Cooking to Programming. Each level unlocks new career tracks, interactions, and earning potential.</p>
+      </div>
+      <div class="card feature-card">
+        <div class="f-icon">💼</div>
+        <h3>Living Careers</h3>
+        <p>10 career paths with branching promotions. Performance, mood, and skill determine how fast you climb the ladder.</p>
+      </div>
+      <div class="card feature-card">
+        <div class="f-icon">🏠</div>
+        <h3>Build & Buy</h3>
+        <p>A full construction system. Lay walls, place furniture, and watch your home value — and Comfort need — rise.</p>
+      </div>
+      <div class="card feature-card">
+        <div class="f-icon">👥</div>
+        <h3>Relationships</h3>
+        <p>Form friendships, rivalries, and romances. Social bonds unlock co-living, joint quests, and bonus rewards.</p>
+      </div>
+      <div class="card feature-card">
+        <div class="f-icon">💰</div>
+        <h3>Play-to-Earn Economy</h3>
+        <p>Every milestone pays out in <b>$PLUM</b> — Plum. Complete quests, hit life goals, and withdraw to your wallet.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GAMEPLAY -->
+  <section class="section section-alt" id="gameplay">
+    <div class="section-head">
+      <span class="eyebrow">How It Plays</span>
+      <h2>A day in the life of your Sim.</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Create Your Sim</h3>
+        <p>Name, appearance, personality traits, and a lifetime aspiration. Your choices define starting stats and long-term goals.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>Build a Home</h3>
+        <p>Use Build Mode to design a house from scratch. Furniture isn't cosmetic — it satisfies needs and boosts comfort.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>Live & Direct</h3>
+        <p>In Live Mode your Sim moves through life autonomously. Give commands, queue actions, and balance eight competing needs.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <h3>Earn Rewards</h3>
+        <p>Hit milestones — a promotion, a new friend, a maxed skill — and earn $PLUM. Cash out or reinvest in your Sim's life.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ECONOMY -->
+  <section class="section" id="economy">
+    <div class="split">
+      <div>
+        <span class="eyebrow">P2E Economy</span>
+        <h2>$PLUM — the coin of the realm.</h2>
+        <p>Plum ($PLUM) is the on-chain reward token that powers the economy. It's earned, not bought. Every meaningful life event mints a small reward — and every withdrawal is verifiable on-chain.</p>
+        <ul class="check-list">
+          <li><span class="chk">✓</span> Earn from careers, skills, relationships & quests</li>
+          <li><span class="chk">✓</span> No pay-to-win — progression is skill-based</li>
+          <li><span class="chk">✓</span> Transparent on-chain withdrawal ledger</li>
+          <li><span class="chk">✓</span> Reinvest in your Sim's home, wardrobe & business</li>
+        </ul>
+        <a href="pages/dashboard.html" class="btn btn-primary">Start Earning →</a>
+      </div>
+      <div class="token-panel">
+        <div class="token-head">
+          <div class="token-logo">$PLUM</div>
+          <div>
+            <h4>Plum ($PLUM)</h4>
+            <small>Reward coin · earned, never sold</small>
+          </div>
+        </div>
+        <div class="token-how">
+          <div class="th-row"><span class="th-ic">🎯</span><div><b>Earned by playing</b><small>Daily logins, quests and life milestones mint $PLUM. No presale, no buy-in — you can't buy your way ahead.</small></div></div>
+          <div class="th-row"><span class="th-ic">🛡️</span><div><b>Capped &amp; verified</b><small>Only achievements the server recognises count toward real rewards, with daily caps — so it can't be botted or farmed.</small></div></div>
+          <div class="th-row"><span class="th-ic">💸</span><div><b>Cash out as real SOL</b><small>Connect a wallet and withdraw verified rewards on-chain. Non-custodial — you always hold your own keys.</small></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW P2E WORKS -->
+  <section class="section" id="p2e">
+    <div class="section-head">
+      <span class="eyebrow">Play-to-Earn, honestly</span>
+      <h2>From living a life to real rewards.</h2>
+      <p>No grinding bots, no buy-ins. You earn $PLUM by actually living your Sim's best life — then take it on-chain.</p>
+    </div>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-ic">🎮</div>
+        <h3>1 · Play & progress</h3>
+        <p>Manage needs & emotions, master skills, climb careers, and form relationships in a living simulation.</p>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="flow-ic">⚡</div>
+        <h3>2 · Mint $PLUM</h3>
+        <p>Every milestone — a promotion, a maxed skill, a new partner, a finished aspiration — mints a verifiable reward.</p>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="flow-ic">💸</div>
+        <h3>3 · Withdraw</h3>
+        <p>Connect a wallet and withdraw your earned $PLUM off-platform whenever you like. You stay in custody.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROADMAP -->
+  <section class="section section-alt" id="roadmap">
+    <div class="section-head">
+      <span class="eyebrow">Roadmap</span>
+      <h2>What's next for Plumtown.</h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-dot done"></div><div class="tl-q">Q1</div><h4>Core Engine + Needs</h4><p>Sims engine, 8 needs, skills, careers, build mode.</p></div>
+      <div class="tl-item"><div class="tl-dot done"></div><div class="tl-q">Q2</div><h4>P2E Integration</h4><p>$PLUM minting, quests, milestone rewards, wallet.</p></div>
+      <div class="tl-item"><div class="tl-dot now"></div><div class="tl-q">Q3</div><h4>Multiplayer & Social</h4><p>Visit friends, joint households, shared economy.</p></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-q">Q4</div><h4>Mobile + Marketplace</h4><p>iOS/Android launch, NFT assets, in-game store.</p></div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="section-head">
+      <span class="eyebrow">FAQ</span>
+      <h2>Questions, answered.</h2>
+    </div>
+    <div class="faq">
+      <details class="faq-item"><summary>Is Plumtown really free to play?</summary><p>Yes. Account creation, gameplay, and earning are all free. You only pay network gas if you choose to withdraw $PLUM to an external wallet.</p></details>
+      <details class="faq-item"><summary>How do I earn $PLUM?</summary><p>You earn by completing careers promotions, maxing skills, building relationships, finishing daily quests, and hitting lifetime aspiration milestones.</p></details>
+      <details class="faq-item"><summary>Is this pay-to-win?</summary><p>No. There are no gameplay advantages for purchase. All progression is driven by your Sim's skills, mood, and the choices you make.</p></details>
+      <details class="faq-item"><summary>Do I need a crypto wallet to play?</summary><p>No. You can play the entire game without one. A wallet is only needed to withdraw earned $PLUM off-platform.</p></details>
+      <details class="faq-item"><summary>Can I play on mobile?</summary><p>The web app is fully responsive today. Native iOS and Android clients are scheduled for Q4.</p></details>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-band">
+    <h2>Your Sim's life is waiting.</h2>
+    <p>Create your first Sim in under 60 seconds and start earning today.</p>
+    <a href="pages/dashboard.html" class="btn btn-primary btn-lg">Launch Plumtown →</a>
+    <div class="cta-sims" aria-hidden="true">
+      <span class="hero-sim s1"></span>
+      <span class="hero-sim s2"></span>
+      <span class="hero-sim s3"></span>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="foot-inner">
+      <div class="foot-brand">
+        <div class="brand-mark">PT</div>
+        <div>
+          <strong>Plumtown</strong>
+          <p>The play-to-earn life simulator.</p>
+        </div>
+      </div>
+      <div class="foot-cols">
+        <div><h5>Game</h5><a href="#features">Features</a><a href="#gameplay">Gameplay</a><a href="#economy">Economy</a></div>
+        <div><h5>Project</h5><a href="#roadmap">Roadmap</a><a href="#faq">FAQ</a><a href="pages/dashboard.html">Launch App</a></div>
+      </div>
+    </div>
+    <div class="foot-bottom">© 2026 Plumtown. All rights reserved.</div>
+  </footer>
+
+  <script src="js/landing-loader.js"></script>
+  <script src="js/landing.js"></script>
+</body>
+</html>

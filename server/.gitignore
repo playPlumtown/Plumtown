@@ -1,0 +1,12 @@
+# Never commit secrets or installed deps
+.env
+.env.*
+!.env.example
+node_modules/
+*.log
+
+# Treasury / keypair files — keep private keys OUT of git
+*.key
+*-keypair.json
+treasury*.json
+id.json

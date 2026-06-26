@@ -1,0 +1,21 @@
+{
+  "name": "lifesim-community-api",
+  "version": "1.0.0",
+  "description": "Shared-world backend for LifeSim — players register, publish their house, and visit each other.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "pg": "^8.11.3"
+  },
+  "optionalDependencies": {
+    "@solana/web3.js": "^1.95.3",
+    "@solana/spl-token": "^0.4.8",
+    "bs58": "^6.0.0",
+    "tweetnacl": "^1.0.3"
+  }
+}
