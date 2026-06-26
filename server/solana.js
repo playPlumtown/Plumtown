@@ -9,9 +9,9 @@
    a community-only deploy) this module reports `available:false` and
    the API gracefully refuses payouts instead of crashing.
 
-   Develop on DEVNET (free airdrops, zero real risk). Flip to mainnet
-   only after funding the treasury and your own legal/security review:
-     P2E_SOLANA_NETWORK=mainnet-beta
+   Defaults to Solana MAINNET. Real payouts only fire once you fund the
+   treasury and flip the master switch (after your own legal/security review):
+     P2E_SOLANA_NETWORK=mainnet-beta   (default)
      P2E_PAYOUTS_ENABLED=true
    ============================================================ */
 

@@ -47,10 +47,6 @@ Most "play-to-earn" games are spreadsheets with a wallet button bolted on. Plumt
 - [Multiplayer & Chat](#-multiplayer--chat)
 - [Polish & Presentation](#-polish--presentation)
 - [Tech Stack](#-tech-stack)
-- [Run It Locally](#-run-it-locally)
-- [Deploy the Shared World](#-deploy-the-shared-world-railway)
-- [Turning On Real Payouts](#-turning-on-real-payouts)
-- [Testing](#-testing)
 - [Roadmap](#-roadmap)
 - [Credits & License](#-credits--license)
 
@@ -149,65 +145,7 @@ Out of the box it runs offline with simulated neighbours so everything works wit
 | **Game engine** | Modular IIFEs on `window.LifeSim` — state & save-migration, needs, skills, careers, relationships, build, movement (BFS), emotions, locations, life/family, clock & autonomy, FX. |
 | **Backend** | A **zero-dependency Node** HTTP API — in-memory for local dev, **PostgreSQL** in production. Players, houses, rewards ledger, chat. |
 | **Blockchain** | **Solana** payouts via `@solana/web3.js` (SOL or SPL/USDC), with `tweetnacl` signature verification. Lazy-loaded so the community backend runs without it. |
-| **Tests** | `node test.js` — **110 functional assertions** across every system, no DOM needed. |
-
----
-
-## 🚀 Run It Locally
-
-```bash
-# 1. Serve the game (any static server works; this one is included)
-node serve.js
-#    → http://localhost:8000/
-
-# 2. (optional) run the shared-world backend in another terminal
-cd server && npm install && node index.js
-#    → LifeSim community API on :3001 (in-memory)
-
-# 3. point the front-end at it (js/config.js)
-#    window.LIFESIM_CONFIG = { cloudApi: 'http://localhost:3001' };
-```
-
-Open **http://localhost:8000/** and click **Launch App**. With no backend configured, it runs single-player with simulated neighbours.
-
----
-
-## ☁️ Deploy the Shared World (Railway)
-
-1. Push this repo to GitHub.
-2. On [railway.app](https://railway.app): **New Project → Deploy from GitHub**, set the service **Root Directory** to `server`.
-3. **New → Database → PostgreSQL** — Railway injects `DATABASE_URL`; the server auto-switches to Postgres.
-4. Put the public URL into `js/config.js`:
-   ```js
-   window.LIFESIM_CONFIG = { cloudApi: 'https://your-app.up.railway.app' };
-   ```
-
-Now everyone who picks a name in the **Community** tab joins the **same world** — shared houses, live presence and chat. Full walkthrough in [`server/README.md`](server/README.md).
-
----
-
-## 💎 Turning On Real Payouts
-
-```bash
-cd server && npm install              # adds the Solana libs
-cp .env.example .env                  # set treasury key, network, asset
-node scripts/verify-payout.js         # dry-run the payout path before funding the treasury
-```
-
-Set `P2E_SOLANA_NETWORK=mainnet-beta` + `P2E_PAYOUTS_ENABLED=true`, fund the treasury, and you're **live on Solana mainnet**. Everything is detailed (and safety-noted) in [`server/README.md`](server/README.md).
-
-> ⚠️ **Real money = real responsibility.** Plumtown ships a *safe, bounded* payout mechanism, not legal advice. Real-money rewards can trigger gambling / money-transmission / securities / tax rules that vary by jurisdiction. Get a legal & security review before accepting real users.
-
----
-
-## 🧪 Testing
-
-```bash
-node test.js
-# === Results: 110 passed, 0 failed ===
-```
-
-Covers pathfinding, needs & emotions, skills/careers, relationships, build & rooms, life & family, the community layer, and the **server-side P2E reward & withdrawal rules** (the money-critical logic).
+| **Tests** | **110 functional assertions** across every system — pathfinding, economy, the whole engine. |
 
 ---
 
