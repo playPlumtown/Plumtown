@@ -12,7 +12,6 @@ Plumtown is a cozy, browser-based **play-to-earn life simulator**. Raise a Sim, 
 
 [![Website](https://img.shields.io/badge/Play-playplumtown.com-26b566?style=for-the-badge&logo=googlechrome&logoColor=white)](https://playplumtown.com)
 [![X](https://img.shields.io/badge/Follow-@playPlumtown-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/playPlumtown)
-[![Pump.fun](https://img.shields.io/badge/$PLUM-pump.fun-3ddc84?style=for-the-badge)](https://pump.fun/)
 
 ![Built on Solana](https://img.shields.io/badge/Built%20on-Solana-9945FF?style=flat-square&logo=solana&logoColor=white)
 ![Vanilla JS](https://img.shields.io/badge/Vanilla-JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
@@ -117,7 +116,7 @@ Those verified achievements accrue **redeemable credits** — a capped, **server
 - 🛡️ **Server-authoritative** — the browser is never trusted with reward amounts. A tampered client mints nothing the server doesn't recognise.
 - 🚧 **Capped** — daily earn caps, minimum withdrawals, daily withdrawal caps, and cooldowns.
 - 🔑 **Non-custodial** — payouts go to *your* wallet; the operator never holds your funds. The treasury key lives only on the server.
-- 🧪 **Devnet-first** — develop and test on devnet (free), flip to mainnet with one env var when you're ready.
+- 🟣 **Solana mainnet** — real, on-chain SOL payouts, gated behind a master switch only you control.
 
 ---
 
@@ -192,10 +191,10 @@ Now everyone who picks a name in the **Community** tab joins the **same world** 
 ```bash
 cd server && npm install              # adds the Solana libs
 cp .env.example .env                  # set treasury key, network, asset
-node scripts/verify-payout.js         # confirm the payout path (devnet is free)
+node scripts/verify-payout.js         # dry-run the payout path before funding the treasury
 ```
 
-Develop on **devnet**, then set `P2E_SOLANA_NETWORK=mainnet-beta` + `P2E_PAYOUTS_ENABLED=true`, fund the treasury, and you're live. Everything is detailed (and safety-noted) in [`server/README.md`](server/README.md).
+Set `P2E_SOLANA_NETWORK=mainnet-beta` + `P2E_PAYOUTS_ENABLED=true`, fund the treasury, and you're **live on Solana mainnet**. Everything is detailed (and safety-noted) in [`server/README.md`](server/README.md).
 
 > ⚠️ **Real money = real responsibility.** Plumtown ships a *safe, bounded* payout mechanism, not legal advice. Real-money rewards can trigger gambling / money-transmission / securities / tax rules that vary by jurisdiction. Get a legal & security review before accepting real users.
 
@@ -232,7 +231,7 @@ Code released under the **MIT License**. Plumtown is an original project — pla
 
 <div align="center">
 
-**[🌐 playplumtown.com](https://playplumtown.com) · [𝕏 @playPlumtown](https://x.com/playPlumtown) · [🪙 pump.fun](https://pump.fun/) · [💻 GitHub](https://github.com/playPlumtown/Plumtown)**
+**[🌐 playplumtown.com](https://playplumtown.com) · [𝕏 @playPlumtown](https://x.com/playPlumtown)**
 
 ⭐ *If Plumtown made you smile, drop a star.*
 

@@ -65,6 +65,19 @@
   // ---------------- RENDER: STATS / TOPBAR ----------------
   function renderTopbar() {
     $('#lscBalance').textContent = state.player.lsc.toLocaleString();
+    const tc = $('#topConnect');
+    if (tc) {
+      if (state.player.wallet) {
+        const w = state.player.wallet;
+        tc.textContent = '🟢 ' + w.slice(0, 4) + '…' + w.slice(-4);
+        tc.classList.remove('btn-primary'); tc.classList.add('btn-ghost');
+        tc.title = 'Wallet connected — open Wallet';
+      } else {
+        tc.textContent = '🔗 Connect Wallet';
+        tc.classList.add('btn-primary'); tc.classList.remove('btn-ghost');
+        tc.title = 'Connect your Solana wallet';
+      }
+    }
   }
 
   function renderOverview() {
@@ -270,18 +283,46 @@
       el.innerHTML = '<div class="wc-connected">🟢 ' + escapeHtml(w.slice(0, 6) + '…' + w.slice(-4)) +
         '<button class="link" id="wcDisconnect">Disconnect</button></div>';
       const d = $('#wcDisconnect');
-      if (d) d.addEventListener('click', () => { state.player.wallet = ''; LS.save(state); renderWallet(); toast('Wallet disconnected'); });
+      if (d) d.addEventListener('click', disconnectWallet);
     } else {
-      el.innerHTML = '<button class="btn btn-ghost btn-sm" id="wcConnect">🔗 Connect Wallet</button>';
+      el.innerHTML = '<button class="btn btn-ghost btn-sm" id="wcConnect">🔗 Connect Phantom</button>';
       const c = $('#wcConnect');
-      if (c) c.addEventListener('click', () => {
-        const hex = '0x' + Array.from({ length: 40 }, () => '0123456789abcdef'[Math.floor(Math.random() * 16)]).join('');
-        state.player.wallet = hex;
-        LS.save(state);
-        renderWallet();
-        toast('Wallet connected (demo)', 'success');
-      });
+      if (c) c.addEventListener('click', connectWallet);
     }
+  }
+
+  // Real, non-custodial Phantom connect (client-side — works with or
+  // without the backend; linking for withdrawals needs the backend).
+  async function connectWallet() {
+    if (!LS.P2E) { toast('Wallet unavailable', 'error'); return; }
+    if (!LS.P2E.walletInstalled()) {
+      toast('Install the Phantom wallet to connect', 'error');
+      window.open('https://phantom.app/', '_blank', 'noopener');
+      return;
+    }
+    try {
+      toast('Approve the connection in your wallet…');
+      const addr = await LS.P2E.connect();
+      state.player.wallet = addr;
+      LS.save(state);
+      if (LS.P2E.isLive && LS.P2E.isLive()) { try { await LS.P2E.linkWallet(); } catch (e) { /* */ } }
+      renderTopbar();
+      renderWalletConnect();
+      if ($('#view-wallet') && $('#view-wallet').classList.contains('active')) renderWallet();
+      toast('Wallet connected ✓', 'success');
+    } catch (e) {
+      toast((e && e.userMessage) || 'Connection cancelled', 'error');
+    }
+  }
+
+  async function disconnectWallet() {
+    try { if (LS.P2E && LS.P2E.disconnect) await LS.P2E.disconnect(); } catch (e) { /* */ }
+    state.player.wallet = '';
+    LS.save(state);
+    renderTopbar();
+    renderWalletConnect();
+    if ($('#view-wallet') && $('#view-wallet').classList.contains('active')) renderWallet();
+    toast('Wallet disconnected');
   }
 
   // ---------------- RENDER: P2E (real Solana rewards) ----------------
@@ -697,16 +738,10 @@
       renderP2E();
       return;
     }
-    if (state.player.lsc < 100) { toast('Minimum 100 PLUM to withdraw', 'error'); return; }
-    if (!state.player.wallet) { toast('Add a wallet address in Settings first', 'error'); switchView('settings'); return; }
-    const amt = state.player.lsc;
-    state.player.lsc = 0;
-    addTx('withdraw', amt, `Withdrawn to ${state.player.wallet.slice(0, 8)}…`);
-    logActivity('📤', `Withdrew ${amt} PLUM`);
-    LS.save(state);
-    renderWallet();
-    renderTopbar();
-    toast(`${amt} PLUM withdrawn to wallet`, 'success');
+    // Real payouts are server-verified — connect a wallet, then withdrawals
+    // open once the shared backend is live. (No fake balances are touched.)
+    if (!state.player.wallet) { connectWallet(); return; }
+    toast('Withdrawals open once the Plumtown backend is live', '');
   }
 
   // ---------------- SETTINGS SAVE ----------------
@@ -764,6 +799,7 @@
     $('#claimDaily').addEventListener('click', claimDaily);
     // wallet
     $('#withdrawBtn').addEventListener('click', withdraw);
+    const tcb = $('#topConnect'); if (tcb) tcb.addEventListener('click', () => { if (state.player.wallet) switchView('wallet'); else connectWallet(); });
     // settings
     $('#saveSettings').addEventListener('click', saveSettings);
     $('#resetAll').addEventListener('click', resetAll);

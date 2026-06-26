@@ -32,7 +32,7 @@ try {
   loadError = e;
 }
 
-const NETWORK = env.P2E_SOLANA_NETWORK || 'devnet'; // devnet | testnet | mainnet-beta
+const NETWORK = env.P2E_SOLANA_NETWORK || 'mainnet-beta'; // mainnet-beta | devnet | testnet
 const REWARD_ASSET = (env.P2E_REWARD_ASSET || 'SOL').toUpperCase() === 'USDC' ? 'USDC' : 'SOL';
 const USDC_MINT = env.P2E_REWARD_MINT || (
   NETWORK === 'mainnet-beta'
