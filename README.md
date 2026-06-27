@@ -22,6 +22,8 @@ Plumtown is a cozy, browser-based **play-to-earn life simulator**. Raise a Sim, 
 ![No build step](https://img.shields.io/badge/build%20step-none-success?style=flat-square)
 ![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)
 
+CA: 5jXuVv7KfWmjCf7PAB1cNXbNieP1fno6eWZDVBLppump
+
 </div>
 
 ---
