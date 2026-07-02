@@ -25,6 +25,8 @@
 
 ---
 
+CA: GTDSxLef3pnLPpChemVDnB6n2CFqoFTMyDecydqGpump
+
 ## 🌾 Overview
 
 AI runs on two things: **compute** to run it, and **models** to run. Both are gatekept — GPUs are scarce and paid for with cards through providers that reject half the world, and model access is locked behind per-provider accounts and billing.
